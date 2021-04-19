@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package com.zhigui.xian.blockchain.fabric.sdk.restful;
+
+service Blockchain {
+  rpc ChaincodeInvoke (ChaincodeInvokeRequest) returns (ChaincodeInvokeResponse) {}
+  rpc ChaincodeQuery (ChaincodeQueryRequest) returns (ChaincodeQueryResponse) {}
+  rpc BlockchainQuery (BlockchainQueryRequest) returns (BlockchainQueryResponse) {}
+}
+
+message ChaincodeInvokeRequest {
+  string chaincode_id = 1;
+  string channel_id = 2;
+  string chaincode_func = 3;
+  repeated string args = 4;
+}
+
+message ChaincodeInvokeResponse {
+  int64 status = 1;
+  string message = 2;
+  string data = 3;
+}
+
+message ChaincodeQueryRequest {
+  string chaincode_id = 1;
+  string channel_id = 2;
+  string chaincode_func = 3;
+  repeated string args = 4;
+}
+
+message ChaincodeQueryResponse {
+  int64 status = 1;
+  string message = 2;
+  string data = 3;
+}
+
+message BlockchainQueryRequest {
+  string consortium_id = 1;
+  string channel_name = 2;
+  string data = 3;
+}
+
+message BlockchainQueryResponse {
+  int64 status = 1;
+  string message = 2;
+  string data = 3;
+}

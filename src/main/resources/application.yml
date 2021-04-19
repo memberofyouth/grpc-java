@@ -1,0 +1,9 @@
+server:
+  port: 8889
+grpc:
+  port: 55403
+
+
+app-config:
+  grpc-server-name: localhost
+  grpc-server-port: 55432
