@@ -43,8 +43,16 @@ public class MemberController{
         return response.getToken();
     }
 
-    @PostMapping("/hello")
-    public String login(@RequestBody GreeterVo greeterVo){
+    @GetMapping("/hello")
+    public String hello(GreeterVo greeterVo){
+        GreeterRequest buildRequest = GreeterRequest.newBuilder().setName(greeterVo.getName()).build();
+
+        GreeterResponse hello = this.greeterBlockingStub.hello(buildRequest);
+        return hello.getGreeting();
+    }
+
+    @PostMapping("/hello2")
+    public String hello2(@RequestBody GreeterVo greeterVo){
         GreeterRequest buildRequest = GreeterRequest.newBuilder().setName(greeterVo.getName()).build();
 
         GreeterResponse hello = this.greeterBlockingStub.hello(buildRequest);
